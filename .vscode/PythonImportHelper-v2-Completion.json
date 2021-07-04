@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "SpidermyraItem",
+        "importPath": "SpiderMyra.items",
+        "description": "SpiderMyra.items",
+        "isExtraImport": true,
+        "detail": "SpiderMyra.items",
+        "documentation": {}
+    },
+    {
         "label": "is_item",
         "importPath": "itemadapter",
         "description": "itemadapter",
@@ -62,7 +70,7 @@
         "kind": 6,
         "importPath": "SpiderMyra.items",
         "description": "SpiderMyra.items",
-        "peekOfCode": "class SpidermyraItem(scrapy.Item):\n    # define the fields for your item here like:\n    # name = scrapy.Field()\n    pass",
+        "peekOfCode": "class SpidermyraItem(scrapy.Item):\n    texto = scrapy.Field()\n    autor = scrapy.Field()\n    tags = scrapy.Field()",
         "detail": "SpiderMyra.items",
         "documentation": {}
     },

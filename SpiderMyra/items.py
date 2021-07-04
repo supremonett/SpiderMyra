@@ -7,6 +7,6 @@ import scrapy
 
 
 class SpidermyraItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    texto = scrapy.Field()
+    autor = scrapy.Field()
+    tags = scrapy.Field()

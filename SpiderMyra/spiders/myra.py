@@ -1,5 +1,6 @@
 from scrapy.http.request.form import FormRequest
 import scrapy
+from SpiderMyra.items import SpidermyraItem
 
 
 class MyraSpider(scrapy.Spider):
@@ -30,9 +31,15 @@ class MyraSpider(scrapy.Spider):
 
 
     def coletarDados(self, response):
-        print('---------- COLETANDO DADOS -------------')
+        print('---------- Coletando Quotes -------------')
+        item = SpidermyraItem()
         for i in response.xpath('//div[@class="quote"]'):
-            texto = i.xpath('.//span[@class="text"]/text()').get(),
-            autor = i.xpath('.//small[@class="author"]/text()').get(),
-            tags = i.xpath('.//div[@class="tags"]/a[@class="tag"]/text()').getall()
-            print(tags)
+            item['texto'] = i.xpath('.//span[@class="text"]/text()').get(),
+            item['autor'] = i.xpath('.//small[@class="author"]/text()').get(),
+            item['tags'] = i.xpath('.//div[@class="tags"]/a[@class="tag"]/text()').getall()
+            yield item
+            
+        proximaPg = response.xpath('//a[contains(text(),"Next ")]//@href').get()
+        if proximaPg:
+            proximaP = self.url+proximaPg
+            yield scrapy.Request(url=proximaP, callback=self.coletarDados)
