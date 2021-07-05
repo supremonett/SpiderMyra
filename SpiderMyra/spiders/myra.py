@@ -40,8 +40,8 @@ class MyraSpider(scrapy.Spider):
         
         for i in response.xpath('//div[@class="quote"]'):
             item = SpidermyraItem()
-            item['texto'] = i.xpath('.//span[@class="text"]/text()').get(),
-            item['autor'] = i.xpath('.//small[@class="author"]/text()').get(),
+            item['texto'] = i.xpath('.//span[@class="text"]/text()').get()
+            item['autor'] = i.xpath('.//small[@class="author"]/text()').get()
             item['tags'] = i.xpath('.//div[@class="tags"]/a[@class="tag"]/text()').getall()
             item['pagina'] = self.pagina
             yield item

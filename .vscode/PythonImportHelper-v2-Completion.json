@@ -90,15 +90,6 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
         "label": "MyraSpider",
         "kind": 6,
         "importPath": "SpiderMyra.spiders.myra",
@@ -139,7 +130,7 @@
         "kind": 6,
         "importPath": "SpiderMyra.pipelines",
         "description": "SpiderMyra.pipelines",
-        "peekOfCode": "class SpidermyraPipeline:\n    def process_item(self, item, spider):\n        if((\"life\" in item['tags']) and ('Mark Twain' in item['autor'])):\n            print('')\n            print('--------------- REGRA 1 - TAG: \"life\" ------------------')\n            print(item)\n            print('Exporta csv...\\n')",
+        "peekOfCode": "class SpidermyraPipeline:\n    def process_item(self, item, spider):\n        item['texto'] = self.chr_remove(item['texto'])\n        if((\"life\" in item['tags']) and ('Mark Twain' in item['autor'])):\n            print('')\n            print('--------------- REGRA 1 - Tag: \"life\" ------------------')\n            print(item)\n            print('Exporta csv...\\n')\n        if 'truth' in item['texto']:\n            print('')",
         "detail": "SpiderMyra.pipelines",
         "documentation": {}
     },

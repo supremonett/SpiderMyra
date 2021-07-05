@@ -4,3 +4,5 @@
 2 - Navegar até o diretório<br>
 3 - Instalar o Scrapy 'pip install Scrapy'<br>
 4 - Executar no terminal 'scrapy crawl myra --nolog'<br>
+
+<img width="927" alt="Captura de Tela 2021-07-04 às 23 37 58" src="https://user-images.githubusercontent.com/86879061/124410504-0277d880-dd21-11eb-9f85-bbd1def097b1.png">
