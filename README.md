@@ -1,5 +1,10 @@
 # SpiderMyra
 
+Spider utilizando o framework Scrapy para capturar informações do site http://quotes.toscrape.com<br>
+Nota:
+Regra 1: contenham a tag "life" e que sejam do autor "Mark Twain"<br>
+Regra 2: contenham a palavra "truth" no texto do quote, de qualquer autor<br><br>
+
 1 - Baixar o Projeto <br>
 2 - Navegar até o diretório<br>
 3 - Instalar o Scrapy 'pip install Scrapy'<br>
