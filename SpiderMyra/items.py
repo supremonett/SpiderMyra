@@ -10,3 +10,4 @@ class SpidermyraItem(scrapy.Item):
     texto = scrapy.Field()
     autor = scrapy.Field()
     tags = scrapy.Field()
+    pagina = scrapy.Field()

@@ -33,6 +33,31 @@
         "documentation": {}
     },
     {
+        "label": "SpidermyraPipeline",
+        "importPath": "SpiderMyra.pipelines",
+        "description": "SpiderMyra.pipelines",
+        "isExtraImport": true,
+        "detail": "SpiderMyra.pipelines",
+        "documentation": {}
+    },
+    {
+        "label": "items",
+        "importPath": "SpiderMyra",
+        "description": "SpiderMyra",
+        "isExtraImport": true,
+        "detail": "SpiderMyra",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "is_item",
         "importPath": "itemadapter",
         "description": "itemadapter",
@@ -57,11 +82,28 @@
         "documentation": {}
     },
     {
+        "label": "XmlItemExporter",
+        "importPath": "scrapy.exporters",
+        "description": "scrapy.exporters",
+        "isExtraImport": true,
+        "detail": "scrapy.exporters",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
         "label": "MyraSpider",
         "kind": 6,
         "importPath": "SpiderMyra.spiders.myra",
         "description": "SpiderMyra.spiders.myra",
-        "peekOfCode": "class MyraSpider(scrapy.Spider):\n    name = 'myra'\n    url = 'http://quotes.toscrape.com'\n    def start_requests(self):\n        urls = [\n            self.url+'/login',\n            self.url+'/page/1/',\n        ]\n        cont = 0\n        for url in urls:",
+        "peekOfCode": "class MyraSpider(scrapy.Spider):\n    name = 'myra'\n    url = 'http://quotes.toscrape.com'\n    pagina = 1\n    def start_requests(self):\n        urls = [\n            self.url+'/login',\n            self.url+'/page/1/',\n        ]\n        cont = 0",
         "detail": "SpiderMyra.spiders.myra",
         "documentation": {}
     },
@@ -70,7 +112,7 @@
         "kind": 6,
         "importPath": "SpiderMyra.items",
         "description": "SpiderMyra.items",
-        "peekOfCode": "class SpidermyraItem(scrapy.Item):\n    texto = scrapy.Field()\n    autor = scrapy.Field()\n    tags = scrapy.Field()",
+        "peekOfCode": "class SpidermyraItem(scrapy.Item):\n    texto = scrapy.Field()\n    autor = scrapy.Field()\n    tags = scrapy.Field()\n    pagina = scrapy.Field()",
         "detail": "SpiderMyra.items",
         "documentation": {}
     },
@@ -97,7 +139,7 @@
         "kind": 6,
         "importPath": "SpiderMyra.pipelines",
         "description": "SpiderMyra.pipelines",
-        "peekOfCode": "class SpidermyraPipeline:\n    def process_item(self, item, spider):\n        return item",
+        "peekOfCode": "class SpidermyraPipeline:\n    def process_item(self, item, spider):\n        if((\"life\" in item['tags']) and ('Mark Twain' in item['autor'])):\n            print('')\n            print('--------------- REGRA 1 - TAG: \"life\" ------------------')\n            print(item)\n            print('Exporta csv...\\n')",
         "detail": "SpiderMyra.pipelines",
         "documentation": {}
     },
@@ -232,16 +274,16 @@
         "kind": 5,
         "importPath": "SpiderMyra.settings",
         "description": "SpiderMyra.settings",
-        "peekOfCode": "#EXTENSIONS = {\n#    'scrapy.extensions.telnet.TelnetConsole': None,\n#}\n# Configure item pipelines\n# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html\n#ITEM_PIPELINES = {\n#    'SpiderMyra.pipelines.SpidermyraPipeline': 300,\n#}\n# Enable and configure the AutoThrottle extension (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/autothrottle.html",
+        "peekOfCode": "#EXTENSIONS = {\n#    'scrapy.extensions.telnet.TelnetConsole': None,\n#}\n# Configure item pipelines\n# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html\nITEM_PIPELINES = {\n    'SpiderMyra.pipelines.SpidermyraPipeline': 300,\n}\n# Enable and configure the AutoThrottle extension (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/autothrottle.html",
         "detail": "SpiderMyra.settings",
         "documentation": {}
     },
     {
-        "label": "#ITEM_PIPELINES",
+        "label": "ITEM_PIPELINES",
         "kind": 5,
         "importPath": "SpiderMyra.settings",
         "description": "SpiderMyra.settings",
-        "peekOfCode": "#ITEM_PIPELINES = {\n#    'SpiderMyra.pipelines.SpidermyraPipeline': 300,\n#}\n# Enable and configure the AutoThrottle extension (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/autothrottle.html\n#AUTOTHROTTLE_ENABLED = True\n# The initial download delay\n#AUTOTHROTTLE_START_DELAY = 5\n# The maximum download delay to be set in case of high latencies\n#AUTOTHROTTLE_MAX_DELAY = 60",
+        "peekOfCode": "ITEM_PIPELINES = {\n    'SpiderMyra.pipelines.SpidermyraPipeline': 300,\n}\n# Enable and configure the AutoThrottle extension (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/autothrottle.html\n#AUTOTHROTTLE_ENABLED = True\n# The initial download delay\n#AUTOTHROTTLE_START_DELAY = 5\n# The maximum download delay to be set in case of high latencies\n#AUTOTHROTTLE_MAX_DELAY = 60",
         "detail": "SpiderMyra.settings",
         "documentation": {}
     },
