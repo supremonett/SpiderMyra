@@ -1,7 +1,7 @@
 # SpiderMyra
 
 Spider utilizando o framework Scrapy para capturar informações do site http://quotes.toscrape.com<br>
-Nota:
+<br>
 Regra 1: contenham a tag "life" e que sejam do autor "Mark Twain"<br>
 Regra 2: contenham a palavra "truth" no texto do quote, de qualquer autor<br><br>
 
